@@ -1,36 +1,31 @@
 package edu.umb.uaspbo.entity;
 
-import java.time.LocalDateTime;
+import java.util.Date;
 
 public class User {
-    private Long userId;
+    private int id;
     private String username;
     private String password;
-    private Role role;
-    private LocalDateTime createdAt;
-
-    public enum Role {
-        ADMIN,
-        STAFF
-    }
+    private String role;
+    private Date createdAt;
 
     public User() {
     }
 
-    public User(Long userId, String username, String password, Role role, LocalDateTime createdAt) {
-        this.userId = userId;
+    public User(int id, String username, String password, String role, Date createdAt) {
+        this.id = id;
         this.username = username;
         this.password = password;
         this.role = role;
         this.createdAt = createdAt;
     }
 
-    public Long getUserId() {
-        return userId;
+    public int getId() {
+        return id;
     }
 
-    public void setUserId(Long userId) {
-        this.userId = userId;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getUsername() {
@@ -49,19 +44,19 @@ public class User {
         this.password = password;
     }
 
-    public Role getRole() {
+    public String getRole() {
         return role;
     }
 
-    public void setRole(Role role) {
+    public void setRole(String role) {
         this.role = role;
     }
 
-    public LocalDateTime getCreatedAt() {
+    public Date getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(LocalDateTime createdAt) {
+    public void setCreatedAt(Date createdAt) {
         this.createdAt = createdAt;
     }
 }

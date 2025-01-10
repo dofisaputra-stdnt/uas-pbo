@@ -12,7 +12,6 @@ module edu.umb.uaspbo {
     exports edu.umb.uaspbo;
     exports edu.umb.uaspbo.controller;
     exports edu.umb.uaspbo.dto;
-    exports edu.umb.uaspbo.dao;
     exports edu.umb.uaspbo.entity;
     opens edu.umb.uaspbo.controller to javafx.fxml;
 }

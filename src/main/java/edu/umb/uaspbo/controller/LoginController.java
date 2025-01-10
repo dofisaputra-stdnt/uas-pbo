@@ -1,7 +1,9 @@
 package edu.umb.uaspbo.controller;
 
 import edu.umb.uaspbo.MainApp;
-import edu.umb.uaspbo.dao.UserDAO;
+import edu.umb.uaspbo.repository.UserRepository;
+import edu.umb.uaspbo.repository.impl.UserRepositoryImpl;
+import edu.umb.uaspbo.util.DBUtil;
 import edu.umb.uaspbo.util.DialogUtil;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,12 +17,15 @@ import javafx.scene.control.TextField;
 import javafx.event.ActionEvent;
 import javafx.stage.Stage;
 
+import java.sql.Connection;
+
 public class LoginController {
 
-    private final UserDAO userDAO;
+    private final UserRepository userRepository;
 
     public LoginController() {
-        userDAO = new UserDAO();
+        final Connection connection = DBUtil.getConnection();
+        userRepository = new UserRepositoryImpl(connection);
     }
 
     @FXML
@@ -38,10 +43,12 @@ public class LoginController {
             String username = txUsername.getText();
             String password = txPassword.getText();
 
-            if (userDAO.login(username, password)) {
+            if (userRepository.login(username, password)) {
                 try {
                     FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("dashboard.fxml"));
                     Parent root = fxmlLoader.load();
+                    DashboardController dashboardController = fxmlLoader.getController();
+                    dashboardController.setUser(userRepository.findByUsername(username));
                     Scene dashboardScene = new Scene(root);
                     Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                     stage.setScene(dashboardScene);
@@ -50,7 +57,7 @@ public class LoginController {
                     System.err.println(e.getMessage());
                 }
             } else {
-                DialogUtil.showError("Login Gagal");
+                DialogUtil.showError("Wrong username or password!");
             }
         }
     }

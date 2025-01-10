@@ -6,7 +6,7 @@
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.MenuButton?>
-<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
@@ -30,7 +30,7 @@
                   <FontAwesomeIconView fx:id="btnSupplier" fill="#432e54" glyphName="TRUCK" layoutX="25.0" layoutY="221.0" onMouseClicked="#handleMouseEvent" size="2.5em" />
                   <FontAwesomeIconView fx:id="btnMechanic" fill="#432e54" glyphName="WRENCH" layoutX="26.0" layoutY="271.0" onMouseClicked="#handleMouseEvent" size="2.5em" />
                   <FontAwesomeIconView fx:id="btnService" fill="#432e54" glyphName="LIST" layoutX="25.0" layoutY="321.0" onMouseClicked="#handleMouseEvent" size="2.5em" />
-                  <FontAwesomeIconView fx:id="btnUser" fill="#432e54" glyphName="USER" layoutX="26.0" layoutY="620.0" onMouseClicked="#handleMouseEvent" size="2.5em" wrappingWidth="28.142857551574707" AnchorPane.bottomAnchor="55.714284896850586" />
+                  <FontAwesomeIconView fx:id="btnUser" fill="#432e54" glyphName="USER" layoutX="26.0" layoutY="620.0" onMouseClicked="#handleMouseEvent" size="2.5em" wrappingWidth="28.142857551574707" AnchorPane.bottomAnchor="55.0" />
                   <FontAwesomeIconView fx:id="btnLogout" fill="#ab4459" glyphName="SIGN_OUT" layoutX="26.0" layoutY="570.0" onMouseClicked="#handleMouseEvent" size="2.5em" text="" wrappingWidth="28.142857551574707" AnchorPane.bottomAnchor="105.0" />
                </children>
             </AnchorPane>
@@ -38,544 +38,6 @@
          <center>
             <StackPane prefHeight="150.0" prefWidth="200.0">
                <children>
-                  <AnchorPane fx:id="pnClient" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #EEF5FF;">
-                     <children>
-                        <Label layoutX="15.0" layoutY="23.0" text="Client Management" textFill="#432e54">
-                           <font>
-                              <Font size="24.0" />
-                           </font>
-                        </Label>
-                        <VBox alignment="TOP_RIGHT" layoutX="15.0" layoutY="71.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="70.0">
-                           <children>
-                              <TableView fx:id="tblClient" prefHeight="298.0" prefWidth="970.0" style="-fx-background-color: #EEF5FF; -fx-background-radius: 10;" VBox.vgrow="ALWAYS">
-                                 <columns>
-                                    <TableColumn fx:id="colCId" prefWidth="52.0" text="Client ID" />
-                                    <TableColumn fx:id="colCName" prefWidth="84.0" text="Name" />
-                                    <TableColumn fx:id="colCPhone" prefWidth="89.0" text="Phone" />
-                                    <TableColumn fx:id="colCEmail" prefWidth="94.0" text="Email" />
-                                    <TableColumn fx:id="colCAddress" prefWidth="90.0" text="Address" />
-                                 </columns>
-                                 <columnResizePolicy>
-                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-                                 </columnResizePolicy>
-                              </TableView>
-                              <HBox alignment="TOP_RIGHT" prefHeight="30.0" prefWidth="787.0" spacing="15.0">
-                                 <children>
-                                    <Button alignment="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #176B87; -fx-background-radius: 20;" text="New" textFill="#eef5ff" />
-                                    <Button alignment="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #176B87; -fx-background-radius: 20;" text="Update" textFill="#eef5ff" />
-                                    <Button alignment="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #176B87; -fx-background-radius: 20;" text="Delete" textFill="#eef5ff" />
-                                 </children>
-                                 <VBox.margin>
-                                    <Insets left="500.0" top="10.0" />
-                                 </VBox.margin>
-                              </HBox>
-                              <BorderPane prefHeight="267.0" prefWidth="970.0">
-                                 <left>
-                                    <VBox prefHeight="213.0" prefWidth="430.0" style="-fx-background-color: #176B87; -fx-background-radius: 10;" BorderPane.alignment="CENTER">
-                                       <children>
-                                          <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="200.0">
-                                             <children>
-                                                <Label text="Client ID" textFill="#eef5ff">
-                                                   <font>
-                                                      <Font size="14.0" />
-                                                   </font>
-                                                </Label>
-                                                <Region prefHeight="40.0" prefWidth="16.0" HBox.hgrow="ALWAYS" />
-                                                <TextField prefHeight="35.0" prefWidth="257.0" />
-                                             </children>
-                                          </HBox>
-                                          <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="200.0">
-                                             <children>
-                                                <Label text="Name" textFill="#eef5ff">
-                                                   <font>
-                                                      <Font size="14.0" />
-                                                   </font>
-                                                </Label>
-                                                <Region prefHeight="40.0" prefWidth="16.0" HBox.hgrow="ALWAYS" />
-                                                <TextField prefHeight="35.0" prefWidth="257.0" />
-                                             </children>
-                                          </HBox>
-                                          <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="200.0">
-                                             <children>
-                                                <Label text="Phone" textFill="#eef5ff">
-                                                   <font>
-                                                      <Font size="14.0" />
-                                                   </font>
-                                                </Label>
-                                                <Region prefHeight="40.0" prefWidth="16.0" HBox.hgrow="ALWAYS" />
-                                                <TextField prefHeight="35.0" prefWidth="257.0" />
-                                             </children>
-                                          </HBox>
-                                          <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="200.0">
-                                             <children>
-                                                <Label text="Email" textFill="#eef5ff">
-                                                   <font>
-                                                      <Font size="14.0" />
-                                                   </font>
-                                                </Label>
-                                                <Region prefHeight="40.0" prefWidth="16.0" HBox.hgrow="ALWAYS" />
-                                                <TextField prefHeight="35.0" prefWidth="257.0" />
-                                             </children>
-                                          </HBox>
-                                          <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="200.0">
-                                             <children>
-                                                <Label text="Address" textFill="#eef5ff">
-                                                   <font>
-                                                      <Font size="14.0" />
-                                                   </font>
-                                                </Label>
-                                                <Region prefHeight="40.0" prefWidth="16.0" HBox.hgrow="ALWAYS" />
-                                                <TextField prefHeight="35.0" prefWidth="257.0" />
-                                             </children>
-                                          </HBox>
-                                          <HBox alignment="CENTER_RIGHT">
-                                             <children>
-                                                <Button alignment="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #B4D4FF; -fx-background-radius: 10;" text="Save" textFill="#432e54" />
-                                             </children>
-                                             <VBox.margin>
-                                                <Insets top="15.0" />
-                                             </VBox.margin>
-                                          </HBox>
-                                       </children>
-                                       <padding>
-                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                                       </padding>
-                                    </VBox>
-                                 </left>
-                              </BorderPane>
-                           </children>
-                        </VBox>
-                     </children>
-                  </AnchorPane>
-                  <AnchorPane fx:id="pnSupplier" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #EEF5FF;">
-                     <children>
-                        <Label layoutX="15.0" layoutY="23.0" text="Supplier Management" textFill="#432e54">
-                           <font>
-                              <Font size="24.0" />
-                           </font>
-                        </Label>
-                        <VBox alignment="TOP_RIGHT" layoutX="15.0" layoutY="71.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="70.0">
-                           <children>
-                              <TableView fx:id="tblSupplier" prefHeight="298.0" prefWidth="970.0" style="-fx-background-color: #EEF5FF; -fx-background-radius: 10;" VBox.vgrow="ALWAYS">
-                                 <columns>
-                                    <TableColumn fx:id="colSId" prefWidth="52.0" text="Supplier ID" />
-                                    <TableColumn fx:id="colSName" prefWidth="84.0" text="Name" />
-                                    <TableColumn fx:id="colSPhone" prefWidth="89.0" text="Phone" />
-                                    <TableColumn fx:id="colSEmail" prefWidth="94.0" text="Email" />
-                                    <TableColumn fx:id="colSAddress" prefWidth="90.0" text="Address" />
-                                 </columns>
-                                 <columnResizePolicy>
-                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-                                 </columnResizePolicy>
-                              </TableView>
-                              <HBox alignment="TOP_RIGHT" prefHeight="30.0" prefWidth="787.0" spacing="15.0">
-                                 <children>
-                                    <Button alignment="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #176B87; -fx-background-radius: 20;" text="New" textFill="#eef5ff" />
-                                    <Button alignment="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #176B87; -fx-background-radius: 20;" text="Update" textFill="#eef5ff" />
-                                    <Button alignment="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #176B87; -fx-background-radius: 20;" text="Delete" textFill="#eef5ff" />
-                                 </children>
-                                 <VBox.margin>
-                                    <Insets left="500.0" top="10.0" />
-                                 </VBox.margin>
-                              </HBox>
-                              <BorderPane prefHeight="267.0" prefWidth="970.0">
-                                 <left>
-                                    <VBox prefHeight="213.0" prefWidth="430.0" style="-fx-background-color: #176B87; -fx-background-radius: 10;" BorderPane.alignment="CENTER">
-                                       <children>
-                                          <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="200.0">
-                                             <children>
-                                                <Label text="Supplier ID" textFill="#eef5ff">
-                                                   <font>
-                                                      <Font size="14.0" />
-                                                   </font>
-                                                </Label>
-                                                <Region prefHeight="40.0" prefWidth="16.0" HBox.hgrow="ALWAYS" />
-                                                <TextField prefHeight="35.0" prefWidth="257.0" />
-                                             </children>
-                                          </HBox>
-                                          <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="200.0">
-                                             <children>
-                                                <Label text="Name" textFill="#eef5ff">
-                                                   <font>
-                                                      <Font size="14.0" />
-                                                   </font>
-                                                </Label>
-                                                <Region prefHeight="40.0" prefWidth="16.0" HBox.hgrow="ALWAYS" />
-                                                <TextField prefHeight="35.0" prefWidth="257.0" />
-                                             </children>
-                                          </HBox>
-                                          <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="200.0">
-                                             <children>
-                                                <Label text="Phone" textFill="#eef5ff">
-                                                   <font>
-                                                      <Font size="14.0" />
-                                                   </font>
-                                                </Label>
-                                                <Region prefHeight="40.0" prefWidth="16.0" HBox.hgrow="ALWAYS" />
-                                                <TextField prefHeight="35.0" prefWidth="257.0" />
-                                             </children>
-                                          </HBox>
-                                          <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="200.0">
-                                             <children>
-                                                <Label text="Email" textFill="#eef5ff">
-                                                   <font>
-                                                      <Font size="14.0" />
-                                                   </font>
-                                                </Label>
-                                                <Region prefHeight="40.0" prefWidth="16.0" HBox.hgrow="ALWAYS" />
-                                                <TextField prefHeight="35.0" prefWidth="257.0" />
-                                             </children>
-                                          </HBox>
-                                          <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="200.0">
-                                             <children>
-                                                <Label text="Address" textFill="#eef5ff">
-                                                   <font>
-                                                      <Font size="14.0" />
-                                                   </font>
-                                                </Label>
-                                                <Region prefHeight="40.0" prefWidth="16.0" HBox.hgrow="ALWAYS" />
-                                                <TextField prefHeight="35.0" prefWidth="257.0" />
-                                             </children>
-                                          </HBox>
-                                          <HBox alignment="CENTER_RIGHT">
-                                             <children>
-                                                <Button alignment="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #B4D4FF; -fx-background-radius: 10;" text="Save" textFill="#432e54" />
-                                             </children>
-                                             <VBox.margin>
-                                                <Insets top="15.0" />
-                                             </VBox.margin>
-                                          </HBox>
-                                       </children>
-                                       <padding>
-                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                                       </padding>
-                                    </VBox>
-                                 </left>
-                              </BorderPane>
-                           </children>
-                        </VBox>
-                     </children>
-                  </AnchorPane>
-                  <AnchorPane fx:id="pnMechanic" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #EEF5FF;">
-                     <children>
-                        <Label layoutX="15.0" layoutY="23.0" text="Mechanic Management" textFill="#432e54">
-                           <font>
-                              <Font size="24.0" />
-                           </font>
-                        </Label>
-                        <VBox alignment="TOP_RIGHT" layoutX="15.0" layoutY="71.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="70.0">
-                           <children>
-                              <TableView fx:id="tblMechanic" prefHeight="298.0" prefWidth="970.0" style="-fx-background-color: #EEF5FF; -fx-background-radius: 10;" VBox.vgrow="ALWAYS">
-                                 <columns>
-                                    <TableColumn fx:id="colMId" prefWidth="52.0" text="Mechanic ID" />
-                                    <TableColumn fx:id="colMName" prefWidth="84.0" text="Name" />
-                                    <TableColumn fx:id="colMPhone" prefWidth="89.0" text="Phone" />
-                                    <TableColumn fx:id="colMSpecialization" prefWidth="94.0" text="Specialization" />
-                                 </columns>
-                                 <columnResizePolicy>
-                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-                                 </columnResizePolicy>
-                              </TableView>
-                              <HBox alignment="TOP_RIGHT" prefHeight="30.0" prefWidth="787.0" spacing="15.0">
-                                 <children>
-                                    <Button alignment="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #176B87; -fx-background-radius: 20;" text="New" textFill="#eef5ff" />
-                                    <Button alignment="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #176B87; -fx-background-radius: 20;" text="Update" textFill="#eef5ff" />
-                                    <Button alignment="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #176B87; -fx-background-radius: 20;" text="Delete" textFill="#eef5ff" />
-                                 </children>
-                                 <VBox.margin>
-                                    <Insets left="500.0" top="10.0" />
-                                 </VBox.margin>
-                              </HBox>
-                              <BorderPane prefHeight="230.0" prefWidth="970.0">
-                                 <left>
-                                    <VBox prefHeight="213.0" prefWidth="430.0" style="-fx-background-color: #176B87; -fx-background-radius: 10;" BorderPane.alignment="CENTER">
-                                       <children>
-                                          <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="200.0">
-                                             <children>
-                                                <Label text="Mechanic ID" textFill="#eef5ff">
-                                                   <font>
-                                                      <Font size="14.0" />
-                                                   </font>
-                                                </Label>
-                                                <Region prefHeight="40.0" prefWidth="16.0" HBox.hgrow="ALWAYS" />
-                                                <TextField prefHeight="35.0" prefWidth="257.0" />
-                                             </children>
-                                          </HBox>
-                                          <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="200.0">
-                                             <children>
-                                                <Label text="Name" textFill="#eef5ff">
-                                                   <font>
-                                                      <Font size="14.0" />
-                                                   </font>
-                                                </Label>
-                                                <Region prefHeight="40.0" prefWidth="16.0" HBox.hgrow="ALWAYS" />
-                                                <TextField prefHeight="35.0" prefWidth="257.0" />
-                                             </children>
-                                          </HBox>
-                                          <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="200.0">
-                                             <children>
-                                                <Label text="Phone" textFill="#eef5ff">
-                                                   <font>
-                                                      <Font size="14.0" />
-                                                   </font>
-                                                </Label>
-                                                <Region prefHeight="40.0" prefWidth="16.0" HBox.hgrow="ALWAYS" />
-                                                <TextField prefHeight="35.0" prefWidth="257.0" />
-                                             </children>
-                                          </HBox>
-                                          <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="200.0">
-                                             <children>
-                                                <Label text="Specialization" textFill="#eef5ff">
-                                                   <font>
-                                                      <Font size="14.0" />
-                                                   </font>
-                                                </Label>
-                                                <Region prefHeight="40.0" prefWidth="16.0" HBox.hgrow="ALWAYS" />
-                                                <TextField prefHeight="35.0" prefWidth="257.0" />
-                                             </children>
-                                          </HBox>
-                                          <HBox alignment="CENTER_RIGHT">
-                                             <children>
-                                                <Button alignment="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #B4D4FF; -fx-background-radius: 10;" text="Save" textFill="#432e54" />
-                                             </children>
-                                             <VBox.margin>
-                                                <Insets top="15.0" />
-                                             </VBox.margin>
-                                          </HBox>
-                                       </children>
-                                       <padding>
-                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                                       </padding>
-                                    </VBox>
-                                 </left>
-                              </BorderPane>
-                           </children>
-                        </VBox>
-                     </children>
-                  </AnchorPane>
-                  <AnchorPane fx:id="pnService" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #EEF5FF;">
-                     <children>
-                        <Label layoutX="15.0" layoutY="23.0" text="Service Management" textFill="#432e54">
-                           <font>
-                              <Font size="24.0" />
-                           </font>
-                        </Label>
-                        <VBox alignment="TOP_RIGHT" layoutX="15.0" layoutY="71.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="70.0">
-                           <children>
-                              <TableView fx:id="tblService" prefHeight="298.0" prefWidth="970.0" style="-fx-background-color: #EEF5FF; -fx-background-radius: 10;" VBox.vgrow="ALWAYS">
-                                 <columns>
-                                    <TableColumn fx:id="colSeId" prefWidth="52.0" text="Service ID" />
-                                    <TableColumn fx:id="colSeName" prefWidth="84.0" text="Name" />
-                                    <TableColumn fx:id="colSeDescription" prefWidth="89.0" text="Description" />
-                                    <TableColumn fx:id="colSePrice" prefWidth="94.0" text="Price" />
-                                 </columns>
-                                 <columnResizePolicy>
-                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-                                 </columnResizePolicy>
-                              </TableView>
-                              <HBox alignment="TOP_RIGHT" prefHeight="30.0" prefWidth="787.0" spacing="15.0">
-                                 <children>
-                                    <Button alignment="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #176B87; -fx-background-radius: 20;" text="New" textFill="#eef5ff" />
-                                    <Button alignment="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #176B87; -fx-background-radius: 20;" text="Update" textFill="#eef5ff" />
-                                    <Button alignment="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #176B87; -fx-background-radius: 20;" text="Delete" textFill="#eef5ff" />
-                                 </children>
-                                 <VBox.margin>
-                                    <Insets left="500.0" top="10.0" />
-                                 </VBox.margin>
-                              </HBox>
-                              <BorderPane prefHeight="230.0" prefWidth="970.0">
-                                 <left>
-                                    <VBox prefHeight="213.0" prefWidth="430.0" style="-fx-background-color: #176B87; -fx-background-radius: 10;" BorderPane.alignment="CENTER">
-                                       <children>
-                                          <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="200.0">
-                                             <children>
-                                                <Label text="Service ID" textFill="#eef5ff">
-                                                   <font>
-                                                      <Font size="14.0" />
-                                                   </font>
-                                                </Label>
-                                                <Region prefHeight="40.0" prefWidth="16.0" HBox.hgrow="ALWAYS" />
-                                                <TextField prefHeight="35.0" prefWidth="257.0" />
-                                             </children>
-                                          </HBox>
-                                          <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="200.0">
-                                             <children>
-                                                <Label text="Name" textFill="#eef5ff">
-                                                   <font>
-                                                      <Font size="14.0" />
-                                                   </font>
-                                                </Label>
-                                                <Region prefHeight="40.0" prefWidth="16.0" HBox.hgrow="ALWAYS" />
-                                                <TextField prefHeight="35.0" prefWidth="257.0" />
-                                             </children>
-                                          </HBox>
-                                          <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="200.0">
-                                             <children>
-                                                <Label text="Description" textFill="#eef5ff">
-                                                   <font>
-                                                      <Font size="14.0" />
-                                                   </font>
-                                                </Label>
-                                                <Region prefHeight="40.0" prefWidth="16.0" HBox.hgrow="ALWAYS" />
-                                                <TextField prefHeight="35.0" prefWidth="257.0" />
-                                             </children>
-                                          </HBox>
-                                          <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="200.0">
-                                             <children>
-                                                <Label text="Price" textFill="#eef5ff">
-                                                   <font>
-                                                      <Font size="14.0" />
-                                                   </font>
-                                                </Label>
-                                                <Region prefHeight="40.0" prefWidth="16.0" HBox.hgrow="ALWAYS" />
-                                                <TextField prefHeight="35.0" prefWidth="257.0" />
-                                             </children>
-                                          </HBox>
-                                          <HBox alignment="CENTER_RIGHT">
-                                             <children>
-                                                <Button alignment="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #B4D4FF; -fx-background-radius: 10;" text="Save" textFill="#432e54" />
-                                             </children>
-                                             <VBox.margin>
-                                                <Insets top="15.0" />
-                                             </VBox.margin>
-                                          </HBox>
-                                       </children>
-                                       <padding>
-                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                                       </padding>
-                                    </VBox>
-                                 </left>
-                              </BorderPane>
-                           </children>
-                        </VBox>
-                     </children>
-                  </AnchorPane>
-                  <AnchorPane fx:id="pnUser" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #EEF5FF;">
-                     <children>
-                        <Label layoutX="15.0" layoutY="23.0" text="User Management" textFill="#432e54">
-                           <font>
-                              <Font size="24.0" />
-                           </font>
-                        </Label>
-                        <VBox alignment="TOP_RIGHT" layoutX="15.0" layoutY="71.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="70.0">
-                           <children>
-                              <TableView fx:id="tblUser" prefHeight="298.0" prefWidth="970.0" style="-fx-background-color: #EEF5FF; -fx-background-radius: 10;" VBox.vgrow="ALWAYS">
-                                 <columns>
-                                    <TableColumn fx:id="colUId" prefWidth="52.0" text="User ID" />
-                                    <TableColumn fx:id="colUUsername" prefWidth="84.0" text="Username" />
-                                    <TableColumn fx:id="colURole" prefWidth="89.0" text="Role" />
-                                 </columns>
-                                 <columnResizePolicy>
-                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-                                 </columnResizePolicy>
-                              </TableView>
-                              <HBox alignment="TOP_RIGHT" prefHeight="30.0" prefWidth="787.0" spacing="15.0">
-                                 <children>
-                                    <Button alignment="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #176B87; -fx-background-radius: 20;" text="New" textFill="#eef5ff" />
-                                    <Button alignment="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #176B87; -fx-background-radius: 20;" text="Update" textFill="#eef5ff" />
-                                    <Button alignment="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #176B87; -fx-background-radius: 20;" text="Delete" textFill="#eef5ff" />
-                                 </children>
-                                 <VBox.margin>
-                                    <Insets left="500.0" top="10.0" />
-                                 </VBox.margin>
-                              </HBox>
-                              <BorderPane prefHeight="230.0" prefWidth="970.0">
-                                 <left>
-                                    <VBox prefHeight="213.0" prefWidth="430.0" style="-fx-background-color: #176B87; -fx-background-radius: 10;" BorderPane.alignment="CENTER">
-                                       <children>
-                                          <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="200.0">
-                                             <children>
-                                                <Label text="User ID" textFill="#eef5ff">
-                                                   <font>
-                                                      <Font size="14.0" />
-                                                   </font>
-                                                </Label>
-                                                <Region prefHeight="40.0" prefWidth="16.0" HBox.hgrow="ALWAYS" />
-                                                <TextField prefHeight="35.0" prefWidth="257.0" />
-                                             </children>
-                                          </HBox>
-                                          <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="200.0">
-                                             <children>
-                                                <Label text="Username" textFill="#eef5ff">
-                                                   <font>
-                                                      <Font size="14.0" />
-                                                   </font>
-                                                </Label>
-                                                <Region prefHeight="40.0" prefWidth="16.0" HBox.hgrow="ALWAYS" />
-                                                <TextField prefHeight="35.0" prefWidth="257.0" />
-                                             </children>
-                                          </HBox>
-                                          <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="200.0">
-                                             <children>
-                                                <Label text="Password" textFill="#eef5ff">
-                                                   <font>
-                                                      <Font size="14.0" />
-                                                   </font>
-                                                </Label>
-                                                <Region prefHeight="40.0" prefWidth="16.0" HBox.hgrow="ALWAYS" />
-                                                <TextField prefHeight="35.0" prefWidth="257.0" />
-                                             </children>
-                                          </HBox>
-                                          <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="200.0">
-                                             <children>
-                                                <Label text="Role" textFill="#eef5ff">
-                                                   <font>
-                                                      <Font size="14.0" />
-                                                   </font>
-                                                </Label>
-                                                <Region prefHeight="40.0" prefWidth="16.0" HBox.hgrow="ALWAYS" />
-                                                <MenuButton mnemonicParsing="false" prefHeight="35.0" prefWidth="257.0">
-                                                   <items>
-                                                      <MenuItem mnemonicParsing="false" text="Admin" />
-                                                      <MenuItem mnemonicParsing="false" text="Staff" />
-                                                   </items>
-                                                </MenuButton>
-                                             </children>
-                                          </HBox>
-                                          <HBox alignment="CENTER_RIGHT">
-                                             <children>
-                                                <Button alignment="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #B4D4FF; -fx-background-radius: 10;" text="Save" textFill="#432e54" />
-                                             </children>
-                                             <VBox.margin>
-                                                <Insets top="15.0" />
-                                             </VBox.margin>
-                                          </HBox>
-                                       </children>
-                                       <padding>
-                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                                       </padding>
-                                    </VBox>
-                                 </left>
-                              </BorderPane>
-                           </children>
-                        </VBox>
-                     </children>
-                  </AnchorPane>
-                  <AnchorPane fx:id="pnHome" style="-fx-background-color: #EEF5FF;">
-                     <children>
-                        <TableView fx:id="tblReport" layoutX="15.0" layoutY="70.0" prefHeight="540.0" prefWidth="970.0" style="-fx-background-color: #EEF5FF;" AnchorPane.bottomAnchor="70.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="70.0">
-                          <columns>
-                            <TableColumn fx:id="colId" prefWidth="75.0" text="Order ID" />
-                            <TableColumn fx:id="colOrderDate" prefWidth="125.0" text="Order Date" />
-                              <TableColumn fx:id="colClientName" prefWidth="124.0" text="Client Name" />
-                              <TableColumn fx:id="colClientPhone" prefWidth="109.0" text="Client Phone" />
-                              <TableColumn fx:id="colServiceName" minWidth="0.0" prefWidth="160.0" text="Service Name" />
-                              <TableColumn fx:id="colQty" prefWidth="62.0" text="Qty" />
-                              <TableColumn fx:id="colPrice" prefWidth="151.0" text="Price" />
-                              <TableColumn fx:id="colSubTotal" prefWidth="193.0" text="Subtotal" />
-                          </columns>
-                           <columnResizePolicy>
-                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-                           </columnResizePolicy>
-                        </TableView>
-                        <Button fx:id="btnPrint" layoutX="895.0" layoutY="631.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="35.0" prefWidth="90.0" style="-fx-background-color: #176B87;" text="Print Report" textFill="#eef5ff" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="15.0" />
-                        <Label layoutX="15.0" layoutY="23.0" text="Summary Report" textFill="#432e54" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="23.0">
-                           <font>
-                              <Font size="24.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </AnchorPane>
                   <AnchorPane fx:id="pnOrder" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #EEF5FF;">
                      <children>
                         <Label layoutX="15.0" layoutY="23.0" text="Order Management" textFill="#432e54">
@@ -668,7 +130,7 @@
                                           </HBox>
                                           <HBox alignment="CENTER_RIGHT">
                                              <children>
-                                                <Button fx:id="btnOSave" alignment="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #B4D4FF; -fx-background-radius: 10;" text="Save" textFill="#432e54" />
+                                                <Button fx:id="btnOSave" alignment="CENTER" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #B4D4FF; -fx-background-radius: 10;" text="Save" textFill="#432e54" />
                                              </children>
                                              <VBox.margin>
                                                 <Insets top="15.0" />
@@ -683,6 +145,539 @@
                               </BorderPane>
                            </children>
                         </VBox>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="pnClient" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #EEF5FF;">
+                     <children>
+                        <Label layoutX="15.0" layoutY="23.0" text="Client Management" textFill="#432e54">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <VBox alignment="TOP_RIGHT" layoutX="15.0" layoutY="71.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="70.0">
+                           <children>
+                              <TableView fx:id="tblClient" prefHeight="298.0" prefWidth="970.0" style="-fx-background-color: #EEF5FF; -fx-background-radius: 10;" VBox.vgrow="ALWAYS">
+                                 <columns>
+                                    <TableColumn fx:id="colCId" prefWidth="52.0" text="Client ID" />
+                                    <TableColumn fx:id="colCName" prefWidth="84.0" text="Name" />
+                                    <TableColumn fx:id="colCPhone" prefWidth="89.0" text="Phone" />
+                                    <TableColumn fx:id="colCEmail" prefWidth="94.0" text="Email" />
+                                    <TableColumn fx:id="colCAddress" prefWidth="90.0" text="Address" />
+                                 </columns>
+                                 <columnResizePolicy>
+                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                 </columnResizePolicy>
+                              </TableView>
+                              <HBox alignment="TOP_RIGHT" prefHeight="30.0" prefWidth="787.0" spacing="15.0">
+                                 <children>
+                                    <Button fx:id="btnCNew" alignment="CENTER" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #176B87; -fx-background-radius: 20;" text="New" textFill="#eef5ff" />
+                                    <Button fx:id="btnCUpdate" alignment="CENTER" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #176B87; -fx-background-radius: 20;" text="Update" textFill="#eef5ff" />
+                                    <Button fx:id="btnCDelete" alignment="CENTER" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #176B87; -fx-background-radius: 20;" text="Delete" textFill="#eef5ff" />
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets left="500.0" top="10.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <BorderPane prefHeight="267.0" prefWidth="970.0">
+                                 <left>
+                                    <VBox prefHeight="213.0" prefWidth="430.0" style="-fx-background-color: #176B87; -fx-background-radius: 10;" BorderPane.alignment="CENTER">
+                                       <children>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="200.0">
+                                             <children>
+                                                <Label text="Client ID" textFill="#eef5ff">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <Region prefHeight="40.0" prefWidth="16.0" HBox.hgrow="ALWAYS" />
+                                                <TextField fx:id="txCId" disable="true" prefHeight="35.0" prefWidth="257.0" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="200.0">
+                                             <children>
+                                                <Label text="Name" textFill="#eef5ff">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <Region prefHeight="40.0" prefWidth="16.0" HBox.hgrow="ALWAYS" />
+                                                <TextField fx:id="txCName" prefHeight="35.0" prefWidth="257.0" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="200.0">
+                                             <children>
+                                                <Label text="Phone" textFill="#eef5ff">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <Region prefHeight="40.0" prefWidth="16.0" HBox.hgrow="ALWAYS" />
+                                                <TextField fx:id="txCPhone" prefHeight="35.0" prefWidth="257.0" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="200.0">
+                                             <children>
+                                                <Label text="Email" textFill="#eef5ff">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <Region prefHeight="40.0" prefWidth="16.0" HBox.hgrow="ALWAYS" />
+                                                <TextField fx:id="txCEmail" prefHeight="35.0" prefWidth="257.0" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="200.0">
+                                             <children>
+                                                <Label text="Address" textFill="#eef5ff">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <Region prefHeight="40.0" prefWidth="16.0" HBox.hgrow="ALWAYS" />
+                                                <TextField fx:id="txCAddress" prefHeight="35.0" prefWidth="257.0" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_RIGHT">
+                                             <children>
+                                                <Button fx:id="btnCSave" alignment="CENTER" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #B4D4FF; -fx-background-radius: 10;" text="Save" textFill="#432e54" />
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets top="15.0" />
+                                             </VBox.margin>
+                                          </HBox>
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                       </padding>
+                                    </VBox>
+                                 </left>
+                              </BorderPane>
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="pnMechanic" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #EEF5FF;">
+                     <children>
+                        <Label layoutX="15.0" layoutY="23.0" text="Mechanic Management" textFill="#432e54">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <VBox alignment="TOP_RIGHT" layoutX="15.0" layoutY="71.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="70.0">
+                           <children>
+                              <TableView fx:id="tblMechanic" prefHeight="298.0" prefWidth="970.0" style="-fx-background-color: #EEF5FF; -fx-background-radius: 10;" VBox.vgrow="ALWAYS">
+                                 <columns>
+                                    <TableColumn fx:id="colMId" prefWidth="52.0" text="Mechanic ID" />
+                                    <TableColumn fx:id="colMName" prefWidth="84.0" text="Name" />
+                                    <TableColumn fx:id="colMPhone" prefWidth="89.0" text="Phone" />
+                                    <TableColumn fx:id="colMSpecialization" prefWidth="94.0" text="Specialization" />
+                                 </columns>
+                                 <columnResizePolicy>
+                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                 </columnResizePolicy>
+                              </TableView>
+                              <HBox alignment="TOP_RIGHT" prefHeight="30.0" prefWidth="787.0" spacing="15.0">
+                                 <children>
+                                    <Button fx:id="btnMNew" alignment="CENTER" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #176B87; -fx-background-radius: 20;" text="New" textFill="#eef5ff" />
+                                    <Button fx:id="btnMUpdate" alignment="CENTER" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #176B87; -fx-background-radius: 20;" text="Update" textFill="#eef5ff" />
+                                    <Button fx:id="btnMDelete" alignment="CENTER" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #176B87; -fx-background-radius: 20;" text="Delete" textFill="#eef5ff" />
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets left="500.0" top="10.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <BorderPane prefHeight="230.0" prefWidth="970.0">
+                                 <left>
+                                    <VBox prefHeight="213.0" prefWidth="430.0" style="-fx-background-color: #176B87; -fx-background-radius: 10;" BorderPane.alignment="CENTER">
+                                       <children>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="200.0">
+                                             <children>
+                                                <Label text="Mechanic ID" textFill="#eef5ff">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <Region prefHeight="40.0" prefWidth="16.0" HBox.hgrow="ALWAYS" />
+                                                <TextField fx:id="txMId" disable="true" prefHeight="35.0" prefWidth="257.0" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="200.0">
+                                             <children>
+                                                <Label text="Name" textFill="#eef5ff">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <Region prefHeight="40.0" prefWidth="16.0" HBox.hgrow="ALWAYS" />
+                                                <TextField fx:id="txMName" prefHeight="35.0" prefWidth="257.0" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="200.0">
+                                             <children>
+                                                <Label text="Phone" textFill="#eef5ff">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <Region prefHeight="40.0" prefWidth="16.0" HBox.hgrow="ALWAYS" />
+                                                <TextField fx:id="txMPhone" prefHeight="35.0" prefWidth="257.0" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="200.0">
+                                             <children>
+                                                <Label text="Specialization" textFill="#eef5ff">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <Region prefHeight="40.0" prefWidth="16.0" HBox.hgrow="ALWAYS" />
+                                                <TextField fx:id="txMSpecialization" prefHeight="35.0" prefWidth="257.0" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_RIGHT">
+                                             <children>
+                                                <Button fx:id="btnMSave" alignment="CENTER" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #B4D4FF; -fx-background-radius: 10;" text="Save" textFill="#432e54" />
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets top="15.0" />
+                                             </VBox.margin>
+                                          </HBox>
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                       </padding>
+                                    </VBox>
+                                 </left>
+                              </BorderPane>
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="pnSupplier" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #EEF5FF;">
+                     <children>
+                        <Label layoutX="15.0" layoutY="23.0" text="Supplier Management" textFill="#432e54">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <VBox alignment="TOP_RIGHT" layoutX="15.0" layoutY="71.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="70.0">
+                           <children>
+                              <TableView fx:id="tblSupplier" prefHeight="298.0" prefWidth="970.0" style="-fx-background-color: #EEF5FF; -fx-background-radius: 10;" VBox.vgrow="ALWAYS">
+                                 <columns>
+                                    <TableColumn fx:id="colSId" prefWidth="52.0" text="Supplier ID" />
+                                    <TableColumn fx:id="colSName" prefWidth="84.0" text="Name" />
+                                    <TableColumn fx:id="colSPhone" prefWidth="89.0" text="Phone" />
+                                    <TableColumn fx:id="colSEmail" prefWidth="94.0" text="Email" />
+                                    <TableColumn fx:id="colSAddress" prefWidth="90.0" text="Address" />
+                                 </columns>
+                                 <columnResizePolicy>
+                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                 </columnResizePolicy>
+                              </TableView>
+                              <HBox alignment="TOP_RIGHT" prefHeight="30.0" prefWidth="787.0" spacing="15.0">
+                                 <children>
+                                    <Button fx:id="btnSNew" alignment="CENTER" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #176B87; -fx-background-radius: 20;" text="New" textFill="#eef5ff" />
+                                    <Button fx:id="btnSUpdate" alignment="CENTER" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #176B87; -fx-background-radius: 20;" text="Update" textFill="#eef5ff" />
+                                    <Button fx:id="btnSDelete" alignment="CENTER" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #176B87; -fx-background-radius: 20;" text="Delete" textFill="#eef5ff" />
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets left="500.0" top="10.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <BorderPane prefHeight="267.0" prefWidth="970.0">
+                                 <left>
+                                    <VBox prefHeight="213.0" prefWidth="430.0" style="-fx-background-color: #176B87; -fx-background-radius: 10;" BorderPane.alignment="CENTER">
+                                       <children>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="200.0">
+                                             <children>
+                                                <Label text="Supplier ID" textFill="#eef5ff">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <Region prefHeight="40.0" prefWidth="16.0" HBox.hgrow="ALWAYS" />
+                                                <TextField fx:id="txSId" disable="true" prefHeight="35.0" prefWidth="257.0" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="200.0">
+                                             <children>
+                                                <Label text="Name" textFill="#eef5ff">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <Region prefHeight="40.0" prefWidth="16.0" HBox.hgrow="ALWAYS" />
+                                                <TextField fx:id="txSName" prefHeight="35.0" prefWidth="257.0" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="200.0">
+                                             <children>
+                                                <Label text="Phone" textFill="#eef5ff">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <Region prefHeight="40.0" prefWidth="16.0" HBox.hgrow="ALWAYS" />
+                                                <TextField fx:id="txSPhone" prefHeight="35.0" prefWidth="257.0" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="200.0">
+                                             <children>
+                                                <Label text="Email" textFill="#eef5ff">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <Region prefHeight="40.0" prefWidth="16.0" HBox.hgrow="ALWAYS" />
+                                                <TextField fx:id="txSEmail" prefHeight="35.0" prefWidth="257.0" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="200.0">
+                                             <children>
+                                                <Label text="Address" textFill="#eef5ff">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <Region prefHeight="40.0" prefWidth="16.0" HBox.hgrow="ALWAYS" />
+                                                <TextField fx:id="txSAddress" prefHeight="35.0" prefWidth="257.0" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_RIGHT">
+                                             <children>
+                                                <Button fx:id="btnSSave" alignment="CENTER" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #B4D4FF; -fx-background-radius: 10;" text="Save" textFill="#432e54" />
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets top="15.0" />
+                                             </VBox.margin>
+                                          </HBox>
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                       </padding>
+                                    </VBox>
+                                 </left>
+                              </BorderPane>
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="pnService" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #EEF5FF;">
+                     <children>
+                        <Label layoutX="15.0" layoutY="23.0" text="Service Management" textFill="#432e54">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <VBox alignment="TOP_RIGHT" layoutX="15.0" layoutY="71.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="70.0">
+                           <children>
+                              <TableView fx:id="tblService" prefHeight="298.0" prefWidth="970.0" style="-fx-background-color: #EEF5FF; -fx-background-radius: 10;" VBox.vgrow="ALWAYS">
+                                 <columns>
+                                    <TableColumn fx:id="colSeId" prefWidth="52.0" text="Service ID" />
+                                    <TableColumn fx:id="colSeName" prefWidth="84.0" text="Name" />
+                                    <TableColumn fx:id="colSeDescription" prefWidth="89.0" text="Description" />
+                                    <TableColumn fx:id="colSePrice" prefWidth="94.0" text="Price" />
+                                 </columns>
+                                 <columnResizePolicy>
+                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                 </columnResizePolicy>
+                              </TableView>
+                              <HBox alignment="TOP_RIGHT" prefHeight="30.0" prefWidth="787.0" spacing="15.0">
+                                 <children>
+                                    <Button fx:id="btnSeNew" alignment="CENTER" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #176B87; -fx-background-radius: 20;" text="New" textFill="#eef5ff" />
+                                    <Button fx:id="btnSeUpdate" alignment="CENTER" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #176B87; -fx-background-radius: 20;" text="Update" textFill="#eef5ff" />
+                                    <Button fx:id="btnSeDelete" alignment="CENTER" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #176B87; -fx-background-radius: 20;" text="Delete" textFill="#eef5ff" />
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets left="500.0" top="10.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <BorderPane prefHeight="230.0" prefWidth="970.0">
+                                 <left>
+                                    <VBox prefHeight="213.0" prefWidth="430.0" style="-fx-background-color: #176B87; -fx-background-radius: 10;" BorderPane.alignment="CENTER">
+                                       <children>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="200.0">
+                                             <children>
+                                                <Label text="Service ID" textFill="#eef5ff">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <Region prefHeight="40.0" prefWidth="16.0" HBox.hgrow="ALWAYS" />
+                                                <TextField fx:id="txSeId" disable="true" prefHeight="35.0" prefWidth="257.0" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="200.0">
+                                             <children>
+                                                <Label text="Name" textFill="#eef5ff">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <Region prefHeight="40.0" prefWidth="16.0" HBox.hgrow="ALWAYS" />
+                                                <TextField fx:id="txSeName" prefHeight="35.0" prefWidth="257.0" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="200.0">
+                                             <children>
+                                                <Label text="Description" textFill="#eef5ff">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <Region prefHeight="40.0" prefWidth="16.0" HBox.hgrow="ALWAYS" />
+                                                <TextField fx:id="txSeDescription" prefHeight="35.0" prefWidth="257.0" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="200.0">
+                                             <children>
+                                                <Label text="Price" textFill="#eef5ff">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <Region prefHeight="40.0" prefWidth="16.0" HBox.hgrow="ALWAYS" />
+                                                <TextField fx:id="txSePrice" prefHeight="35.0" prefWidth="257.0" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_RIGHT">
+                                             <children>
+                                                <Button fx:id="btnSeSave" alignment="CENTER" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #B4D4FF; -fx-background-radius: 10;" text="Save" textFill="#432e54" />
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets top="15.0" />
+                                             </VBox.margin>
+                                          </HBox>
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                       </padding>
+                                    </VBox>
+                                 </left>
+                              </BorderPane>
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="pnUser" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #EEF5FF;">
+                     <children>
+                        <Label layoutX="15.0" layoutY="23.0" text="User Management" textFill="#432e54">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <VBox alignment="TOP_RIGHT" layoutX="15.0" layoutY="71.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="70.0">
+                           <children>
+                              <TableView fx:id="tblUser" prefHeight="298.0" prefWidth="970.0" style="-fx-background-color: #EEF5FF; -fx-background-radius: 10;" VBox.vgrow="ALWAYS">
+                                 <columns>
+                                    <TableColumn fx:id="colUId" prefWidth="52.0" text="User ID" />
+                                    <TableColumn fx:id="colUUsername" prefWidth="84.0" text="Username" />
+                                    <TableColumn fx:id="colURole" prefWidth="89.0" text="Role" />
+                                 </columns>
+                                 <columnResizePolicy>
+                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                 </columnResizePolicy>
+                              </TableView>
+                              <HBox alignment="TOP_RIGHT" prefHeight="30.0" prefWidth="787.0" spacing="15.0">
+                                 <children>
+                                    <Button fx:id="btnUNew" alignment="CENTER" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #176B87; -fx-background-radius: 20;" text="New" textFill="#eef5ff" />
+                                    <Button fx:id="btnUUpdate" alignment="CENTER" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #176B87; -fx-background-radius: 20;" text="Update" textFill="#eef5ff" />
+                                    <Button fx:id="btnUDelete" alignment="CENTER" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #176B87; -fx-background-radius: 20;" text="Delete" textFill="#eef5ff" />
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets left="500.0" top="10.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <BorderPane prefHeight="230.0" prefWidth="970.0">
+                                 <left>
+                                    <VBox prefHeight="213.0" prefWidth="430.0" style="-fx-background-color: #176B87; -fx-background-radius: 10;" BorderPane.alignment="CENTER">
+                                       <children>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="200.0">
+                                             <children>
+                                                <Label text="User ID" textFill="#eef5ff">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <Region prefHeight="40.0" prefWidth="16.0" HBox.hgrow="ALWAYS" />
+                                                <TextField fx:id="txUid" disable="true" prefHeight="35.0" prefWidth="257.0" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="200.0">
+                                             <children>
+                                                <Label text="Username" textFill="#eef5ff">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <Region prefHeight="40.0" prefWidth="16.0" HBox.hgrow="ALWAYS" />
+                                                <TextField fx:id="txUUsername" prefHeight="35.0" prefWidth="257.0" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="200.0">
+                                             <children>
+                                                <Label text="Password" textFill="#eef5ff">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <Region prefHeight="40.0" prefWidth="16.0" HBox.hgrow="ALWAYS" />
+                                                <PasswordField fx:id="txUPassword" prefHeight="35.0" prefWidth="257.0" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="200.0">
+                                             <children>
+                                                <Label text="Role" textFill="#eef5ff">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <Region prefHeight="40.0" prefWidth="16.0" HBox.hgrow="ALWAYS" />
+                                                <MenuButton fx:id="mbURole" mnemonicParsing="false" prefHeight="35.0" prefWidth="257.0" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_RIGHT">
+                                             <children>
+                                                <Button fx:id="btnUSave" alignment="CENTER" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #B4D4FF; -fx-background-radius: 10;" text="Save" textFill="#432e54" />
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets top="15.0" />
+                                             </VBox.margin>
+                                          </HBox>
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                       </padding>
+                                    </VBox>
+                                 </left>
+                              </BorderPane>
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="pnHome" style="-fx-background-color: #EEF5FF;">
+                     <children>
+                        <TableView fx:id="tblReport" layoutX="15.0" layoutY="70.0" prefHeight="540.0" prefWidth="970.0" style="-fx-background-color: #EEF5FF;" AnchorPane.bottomAnchor="70.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="70.0">
+                          <columns>
+                            <TableColumn fx:id="colId" prefWidth="75.0" text="Order ID" />
+                            <TableColumn fx:id="colOrderDate" prefWidth="125.0" text="Order Date" />
+                              <TableColumn fx:id="colClientName" prefWidth="124.0" text="Client Name" />
+                              <TableColumn fx:id="colClientPhone" prefWidth="109.0" text="Client Phone" />
+                              <TableColumn fx:id="colServiceName" minWidth="0.0" prefWidth="160.0" text="Service Name" />
+                              <TableColumn fx:id="colQty" prefWidth="62.0" text="Qty" />
+                              <TableColumn fx:id="colPrice" prefWidth="151.0" text="Price" />
+                              <TableColumn fx:id="colSubTotal" prefWidth="193.0" text="Subtotal" />
+                          </columns>
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                        </TableView>
+                        <Button fx:id="btnPrint" layoutX="895.0" layoutY="631.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="35.0" prefWidth="90.0" style="-fx-background-color: #176B87;" text="Print Report" textFill="#eef5ff" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="15.0" />
+                        <Label layoutX="15.0" layoutY="23.0" text="Summary Report" textFill="#432e54" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="23.0">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
                      </children>
                   </AnchorPane>
                </children>

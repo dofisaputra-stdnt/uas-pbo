@@ -1,20 +1,20 @@
 package edu.umb.uaspbo.entity;
 
-import java.time.LocalDateTime;
+import java.util.Date;
 
 public class Supplier {
-    private Long supplierId;
+    private int id;
     private String name;
     private String phone;
     private String email;
     private String address;
-    private LocalDateTime createdAt;
+    private Date createdAt;
 
     public Supplier() {
     }
 
-    public Supplier(Long supplierId, String name, String phone, String email, String address, LocalDateTime createdAt) {
-        this.supplierId = supplierId;
+    public Supplier(int id, String name, String phone, String email, String address, Date createdAt) {
+        this.id = id;
         this.name = name;
         this.phone = phone;
         this.email = email;
@@ -22,12 +22,12 @@ public class Supplier {
         this.createdAt = createdAt;
     }
 
-    public Long getSupplierId() {
-        return supplierId;
+    public int getId() {
+        return id;
     }
 
-    public void setSupplierId(Long supplierId) {
-        this.supplierId = supplierId;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -62,11 +62,11 @@ public class Supplier {
         this.address = address;
     }
 
-    public LocalDateTime getCreatedAt() {
+    public Date getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(LocalDateTime createdAt) {
+    public void setCreatedAt(Date createdAt) {
         this.createdAt = createdAt;
     }
 }

@@ -1,32 +1,31 @@
 package edu.umb.uaspbo.entity;
 
-import java.math.BigDecimal;
-import java.time.LocalDateTime;
+import java.util.Date;
 
 public class Service {
-    private Long serviceId;
+    private int id;
     private String name;
     private String description;
-    private BigDecimal price;
-    private LocalDateTime createdAt;
+    private double price;
+    private Date createdAt;
 
     public Service() {
     }
 
-    public Service(Long serviceId, String name, String description, BigDecimal price, LocalDateTime createdAt) {
-        this.serviceId = serviceId;
+    public Service(int id, String name, String description, double price, Date createdAt) {
+        this.id = id;
         this.name = name;
         this.description = description;
         this.price = price;
         this.createdAt = createdAt;
     }
 
-    public Long getServiceId() {
-        return serviceId;
+    public int getId() {
+        return id;
     }
 
-    public void setServiceId(Long serviceId) {
-        this.serviceId = serviceId;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -45,19 +44,19 @@ public class Service {
         this.description = description;
     }
 
-    public BigDecimal getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(BigDecimal price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 
-    public LocalDateTime getCreatedAt() {
+    public Date getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(LocalDateTime createdAt) {
+    public void setCreatedAt(Date createdAt) {
         this.createdAt = createdAt;
     }
 }

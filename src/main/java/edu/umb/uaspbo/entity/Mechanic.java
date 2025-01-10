@@ -1,31 +1,31 @@
 package edu.umb.uaspbo.entity;
 
-import java.time.LocalDateTime;
+import java.util.Date;
 
 public class Mechanic {
-    private Long mechanicId;
+    private int id;
     private String name;
     private String phone;
     private String specialization;
-    private LocalDateTime createdAt;
+    private Date createdAt;
 
     public Mechanic() {
     }
 
-    public Mechanic(Long mechanicId, String name, String phone, String specialization, LocalDateTime createdAt) {
-        this.mechanicId = mechanicId;
+    public Mechanic(int id, String name, String phone, String specialization, Date createdAt) {
+        this.id = id;
         this.name = name;
         this.phone = phone;
         this.specialization = specialization;
         this.createdAt = createdAt;
     }
 
-    public Long getMechanicId() {
-        return mechanicId;
+    public int getId() {
+        return id;
     }
 
-    public void setMechanicId(Long mechanicId) {
-        this.mechanicId = mechanicId;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -52,11 +52,11 @@ public class Mechanic {
         this.specialization = specialization;
     }
 
-    public LocalDateTime getCreatedAt() {
+    public Date getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(LocalDateTime createdAt) {
+    public void setCreatedAt(Date createdAt) {
         this.createdAt = createdAt;
     }
 }

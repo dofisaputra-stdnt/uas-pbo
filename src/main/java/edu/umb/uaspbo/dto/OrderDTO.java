@@ -1,23 +1,21 @@
 package edu.umb.uaspbo.dto;
 
-import java.math.BigDecimal;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
+import java.sql.Date;
 
 public class OrderDTO {
-    private Long orderId;
+    private int id;
     private String client;
-    private LocalDate orderDate;
-    private LocalDate eventDate;
-    private BigDecimal totalAmount;
+    private Date orderDate;
+    private Date eventDate;
+    private double totalAmount;
     private String status;
-    private LocalDateTime createdAt;
+    private java.util.Date createdAt;
 
     public OrderDTO() {
     }
 
-    public OrderDTO(Long orderId, String client, LocalDate orderDate, LocalDate eventDate, BigDecimal totalAmount, String status, LocalDateTime createdAt) {
-        this.orderId = orderId;
+    public OrderDTO(int id, String client, Date orderDate, Date eventDate, double totalAmount, String status, java.util.Date createdAt) {
+        this.id = id;
         this.client = client;
         this.orderDate = orderDate;
         this.eventDate = eventDate;
@@ -26,12 +24,12 @@ public class OrderDTO {
         this.createdAt = createdAt;
     }
 
-    public Long getOrderId() {
-        return orderId;
+    public int getId() {
+        return id;
     }
 
-    public void setOrderId(Long orderId) {
-        this.orderId = orderId;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getClient() {
@@ -42,27 +40,27 @@ public class OrderDTO {
         this.client = client;
     }
 
-    public LocalDate getOrderDate() {
+    public Date getOrderDate() {
         return orderDate;
     }
 
-    public void setOrderDate(LocalDate orderDate) {
+    public void setOrderDate(Date orderDate) {
         this.orderDate = orderDate;
     }
 
-    public LocalDate getEventDate() {
+    public Date getEventDate() {
         return eventDate;
     }
 
-    public void setEventDate(LocalDate eventDate) {
+    public void setEventDate(Date eventDate) {
         this.eventDate = eventDate;
     }
 
-    public BigDecimal getTotalAmount() {
+    public double getTotalAmount() {
         return totalAmount;
     }
 
-    public void setTotalAmount(BigDecimal totalAmount) {
+    public void setTotalAmount(double totalAmount) {
         this.totalAmount = totalAmount;
     }
 
@@ -74,11 +72,11 @@ public class OrderDTO {
         this.status = status;
     }
 
-    public LocalDateTime getCreatedAt() {
+    public java.util.Date getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(LocalDateTime createdAt) {
+    public void setCreatedAt(Date createdAt) {
         this.createdAt = createdAt;
     }
 }

@@ -1,20 +1,18 @@
 package edu.umb.uaspbo.entity;
 
-import java.math.BigDecimal;
-
 public class OrderDetail {
-    private Long orderDetailId;
-    private Long orderId;
-    private Long serviceId;
+    private int id;
+    private int orderId;
+    private int serviceId;
     private int quantity;
-    private BigDecimal price;
-    private BigDecimal subtotal;
+    private double price;
+    private double subtotal;
 
     public OrderDetail() {
     }
 
-    public OrderDetail(Long orderDetailId, Long orderId, Long serviceId, int quantity, BigDecimal price, BigDecimal subtotal) {
-        this.orderDetailId = orderDetailId;
+    public OrderDetail(int id, int orderId, int serviceId, int quantity, double price, double subtotal) {
+        this.id = id;
         this.orderId = orderId;
         this.serviceId = serviceId;
         this.quantity = quantity;
@@ -22,27 +20,27 @@ public class OrderDetail {
         this.subtotal = subtotal;
     }
 
-    public Long getOrderDetailId() {
-        return orderDetailId;
+    public int getId() {
+        return id;
     }
 
-    public void setOrderDetailId(Long orderDetailId) {
-        this.orderDetailId = orderDetailId;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public Long getOrderId() {
+    public int getOrderId() {
         return orderId;
     }
 
-    public void setOrderId(Long orderId) {
+    public void setOrderId(int orderId) {
         this.orderId = orderId;
     }
 
-    public Long getServiceId() {
+    public int getServiceId() {
         return serviceId;
     }
 
-    public void setServiceId(Long serviceId) {
+    public void setServiceId(int serviceId) {
         this.serviceId = serviceId;
     }
 
@@ -54,19 +52,19 @@ public class OrderDetail {
         this.quantity = quantity;
     }
 
-    public BigDecimal getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(BigDecimal price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 
-    public BigDecimal getSubtotal() {
+    public double getSubtotal() {
         return subtotal;
     }
 
-    public void setSubtotal(BigDecimal subtotal) {
+    public void setSubtotal(double subtotal) {
         this.subtotal = subtotal;
     }
 }

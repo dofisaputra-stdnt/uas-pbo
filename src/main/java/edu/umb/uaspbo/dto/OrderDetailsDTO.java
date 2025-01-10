@@ -1,8 +1,10 @@
 package edu.umb.uaspbo.dto;
 
+import java.sql.Date;
+
 public class OrderDetailsDTO {
-    private Long orderId;
-    private String orderDate;
+    private int orderId;
+    private Date orderDate;
     private String clientName;
     private String clientPhone;
     private String serviceName;
@@ -13,7 +15,7 @@ public class OrderDetailsDTO {
     public OrderDetailsDTO() {
     }
 
-    public OrderDetailsDTO(Long orderId, String orderDate, String clientName, String clientPhone, String serviceName, int quantity, double price, double subtotal) {
+    public OrderDetailsDTO(int orderId, Date orderDate, String clientName, String clientPhone, String serviceName, int quantity, double price, double subtotal) {
         this.orderId = orderId;
         this.orderDate = orderDate;
         this.clientName = clientName;
@@ -24,19 +26,19 @@ public class OrderDetailsDTO {
         this.subtotal = subtotal;
     }
 
-    public Long getOrderId() {
+    public int getOrderId() {
         return orderId;
     }
 
-    public void setOrderId(Long orderId) {
+    public void setOrderId(int orderId) {
         this.orderId = orderId;
     }
 
-    public String getOrderDate() {
+    public Date getOrderDate() {
         return orderDate;
     }
 
-    public void setOrderDate(String orderDate) {
+    public void setOrderDate(Date orderDate) {
         this.orderDate = orderDate;
     }
 

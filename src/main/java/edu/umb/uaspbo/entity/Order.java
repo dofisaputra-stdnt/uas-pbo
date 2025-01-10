@@ -1,17 +1,16 @@
 package edu.umb.uaspbo.entity;
 
-import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
+import java.util.Date;
 
 public class Order {
-    private Long orderId;
-    private Long clientId;
+    private int id;
+    private int clientId;
     private LocalDate orderDate;
     private LocalDate eventDate;
-    private BigDecimal totalAmount;
+    private double totalAmount;
     private OrderStatus status;
-    private LocalDateTime createdAt;
+    private Date createdAt;
 
     public enum OrderStatus {
         PENDING,
@@ -23,8 +22,8 @@ public class Order {
     public Order() {
     }
 
-    public Order(Long orderId, Long clientId, LocalDate orderDate, LocalDate eventDate, BigDecimal totalAmount, OrderStatus status, LocalDateTime createdAt) {
-        this.orderId = orderId;
+    public Order(int id, int clientId, LocalDate orderDate, LocalDate eventDate, double totalAmount, OrderStatus status, Date createdAt) {
+        this.id = id;
         this.clientId = clientId;
         this.orderDate = orderDate;
         this.eventDate = eventDate;
@@ -33,19 +32,19 @@ public class Order {
         this.createdAt = createdAt;
     }
 
-    public Long getOrderId() {
-        return orderId;
+    public int getId() {
+        return id;
     }
 
-    public void setOrderId(Long orderId) {
-        this.orderId = orderId;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public Long getClientId() {
+    public int getClientId() {
         return clientId;
     }
 
-    public void setClientId(Long clientId) {
+    public void setClientId(int clientId) {
         this.clientId = clientId;
     }
 
@@ -65,11 +64,11 @@ public class Order {
         this.eventDate = eventDate;
     }
 
-    public BigDecimal getTotalAmount() {
+    public double getTotalAmount() {
         return totalAmount;
     }
 
-    public void setTotalAmount(BigDecimal totalAmount) {
+    public void setTotalAmount(double totalAmount) {
         this.totalAmount = totalAmount;
     }
 
@@ -81,11 +80,11 @@ public class Order {
         this.status = status;
     }
 
-    public LocalDateTime getCreatedAt() {
+    public Date getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(LocalDateTime createdAt) {
+    public void setCreatedAt(Date createdAt) {
         this.createdAt = createdAt;
     }
 }
