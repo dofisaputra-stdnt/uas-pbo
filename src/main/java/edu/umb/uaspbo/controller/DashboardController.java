@@ -181,6 +181,9 @@ public class DashboardController {
     private TableColumn<OrderDTO, String> colOClient;
 
     @FXML
+    private TableColumn<OrderDTO, String> colOMechanic;
+
+    @FXML
     private TextField txOId;
 
     @FXML
@@ -191,6 +194,12 @@ public class DashboardController {
 
     @FXML
     private MenuButton mbOClient;
+
+    @FXML
+    private MenuButton mbOMechanic;
+
+    @FXML
+    private MenuButton mbOService;
 
     @FXML
     private MenuButton mbOStatus;
@@ -450,6 +459,7 @@ public class DashboardController {
         colOStatus.setCellValueFactory(new PropertyValueFactory<>("status"));
         colOTotalAmount.setCellValueFactory(new PropertyValueFactory<>("totalAmount"));
         colOClient.setCellValueFactory(new PropertyValueFactory<>("client"));
+        colOMechanic.setCellValueFactory(new PropertyValueFactory<>("mechanic"));
 
         tblOrder.setOnMouseClicked(event -> {
             OrderDTO order = tblOrder.getSelectionModel().getSelectedItem();
@@ -466,6 +476,24 @@ public class DashboardController {
                 }).collect(Collectors.toCollection(FXCollections::observableArrayList));
 
         mbOClient.getItems().addAll(clientNames);
+
+        ObservableList<MenuItem> serviceNames = FXCollections.observableArrayList(serviceRepository.findAll()).stream()
+                .map(service -> {
+                    MenuItem item = new MenuItem(service.getName());
+                    item.setOnAction(event -> mbOService.setText(service.getName()));
+                    return item;
+                }).collect(Collectors.toCollection(FXCollections::observableArrayList));
+
+        mbOService.getItems().addAll(serviceNames);
+
+        ObservableList<MenuItem> mechanicNames = FXCollections.observableArrayList(mechanicRepository.findAll()).stream()
+                .map(mechanic -> {
+                    MenuItem item = new MenuItem(mechanic.getName());
+                    item.setOnAction(event -> mbOMechanic.setText(mechanic.getName()));
+                    return item;
+                }).collect(Collectors.toCollection(FXCollections::observableArrayList));
+
+        mbOMechanic.getItems().addAll(mechanicNames);
 
         ObservableList<MenuItem> statuses = FXCollections.observableArrayList("Pending", "Confirmed", "Completed", "Canceled").stream()
                 .map(status -> {
@@ -580,8 +608,10 @@ public class DashboardController {
                 txOTotalAmount.setText(String.valueOf(selectedOrder.getTotalAmount()));
                 dpOOrderDate.setValue(selectedOrder.getOrderDate().toLocalDate());
                 mbOClient.setText(selectedOrder.getClient());
+                mbOMechanic.setText(selectedOrder.getMechanic());
                 mbOStatus.setText(selectedOrder.getStatus());
                 enableForm(2, true, false);
+                mbOService.setDisable(true);
             } else {
                 DialogUtil.showError("Please select an order first!");
             }
@@ -595,9 +625,13 @@ public class DashboardController {
             order.setOrderDate(dpOOrderDate.getValue());
             order.setEventDate(dpOOrderDate.getValue());
             order.setClientId(clientRepository.findByName(mbOClient.getText()).getId());
+            order.setMechanicId(mechanicRepository.findByName(mbOMechanic.getText()).getId());
             order.setStatus(Order.OrderStatus.valueOf(mbOStatus.getText().toUpperCase()));
             if (txOId.getText().equals("Auto Generated")) {
-                orderRepository.save(order);
+                Order createdOrder = orderRepository.save(order);
+                Service service = serviceRepository.findByName(mbOService.getText());
+                OrderDetail orderDetail = new OrderDetail(createdOrder.getId(), service.getId(), 1, service.getPrice());
+                orderDetailRepository.save(orderDetail);
             } else {
                 order.setId(Integer.parseInt(txOId.getText()));
                 orderRepository.update(order);
@@ -609,6 +643,7 @@ public class DashboardController {
             if (selectedOrder != null) {
                 boolean confirm = DialogUtil.showConfirm("Are you sure you want to delete this order?");
                 if (confirm) {
+                    orderDetailRepository.deleteByOrderId(selectedOrder.getId());
                     orderRepository.deleteById(selectedOrder.getId());
                     DialogUtil.showInfo("Order deleted successfully!");
                     refreshTable(2);
@@ -940,6 +975,8 @@ public class DashboardController {
                 txOTotalAmount.setDisable(!enable);
                 dpOOrderDate.setDisable(!enable);
                 mbOClient.setDisable(!enable);
+                mbOService.setDisable(!enable);
+                mbOMechanic.setDisable(!enable);
                 mbOStatus.setDisable(!enable);
                 btnOSave.setDisable(!enable);
 
@@ -948,6 +985,8 @@ public class DashboardController {
                     txOTotalAmount.clear();
                     dpOOrderDate.setValue(null);
                     mbOClient.setText("");
+                    mbOService.setText("");
+                    mbOMechanic.setText("");
                     mbOStatus.setText("");
                 }
                 break;

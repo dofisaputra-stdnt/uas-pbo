@@ -30,13 +30,12 @@ public class OrderDetailRepositoryImpl extends BaseRepository<OrderDetail> imple
 
     @Override
     public void save(OrderDetail orderDetail) {
-        String query = "INSERT INTO " + getTableName() + " (order_id, service_id, quantity, price, subtotal) VALUES (?, ?, ?, ?, ?)";
+        String query = "INSERT INTO " + getTableName() + " (order_id, service_id, quantity, price) VALUES (?, ?, ?, ?)";
         try (var statement = connection.prepareStatement(query)) {
             statement.setLong(1, orderDetail.getOrderId());
             statement.setLong(2, orderDetail.getServiceId());
             statement.setInt(3, orderDetail.getQuantity());
             statement.setDouble(4, orderDetail.getPrice());
-            statement.setDouble(5, orderDetail.getSubtotal());
             statement.executeUpdate();
         } catch (Exception e) {
             log.warning(e.getMessage());
@@ -53,6 +52,17 @@ public class OrderDetailRepositoryImpl extends BaseRepository<OrderDetail> imple
             statement.setDouble(4, orderDetail.getPrice());
             statement.setDouble(5, orderDetail.getSubtotal());
             statement.setLong(6, orderDetail.getId());
+            statement.executeUpdate();
+        } catch (Exception e) {
+            log.warning(e.getMessage());
+        }
+    }
+
+    @Override
+    public void deleteByOrderId(int orderId) {
+        String query = "DELETE FROM " + getTableName() + " WHERE order_id = ?";
+        try (var statement = connection.prepareStatement(query)) {
+            statement.setLong(1, orderId);
             statement.executeUpdate();
         } catch (Exception e) {
             log.warning(e.getMessage());

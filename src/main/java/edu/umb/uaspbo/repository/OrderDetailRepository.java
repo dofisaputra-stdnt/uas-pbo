@@ -16,5 +16,7 @@ public interface OrderDetailRepository {
 
     void deleteById(int id);
 
+    void deleteByOrderId(int orderId);
+
     List<OrderDetailsDTO> findAllOrderDetails();
 }

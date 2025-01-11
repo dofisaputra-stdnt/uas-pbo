@@ -5,6 +5,7 @@ import java.sql.Date;
 public class OrderDTO {
     private int id;
     private String client;
+    private String mechanic;
     private Date orderDate;
     private Date eventDate;
     private double totalAmount;
@@ -14,9 +15,10 @@ public class OrderDTO {
     public OrderDTO() {
     }
 
-    public OrderDTO(int id, String client, Date orderDate, Date eventDate, double totalAmount, String status, java.util.Date createdAt) {
+    public OrderDTO(int id, String client, String mechanic, Date orderDate, Date eventDate, double totalAmount, String status, java.util.Date createdAt) {
         this.id = id;
         this.client = client;
+        this.mechanic = mechanic;
         this.orderDate = orderDate;
         this.eventDate = eventDate;
         this.totalAmount = totalAmount;
@@ -38,6 +40,14 @@ public class OrderDTO {
 
     public void setClient(String client) {
         this.client = client;
+    }
+
+    public String getMechanic() {
+        return mechanic;
+    }
+
+    public void setMechanic(String mechanic) {
+        this.mechanic = mechanic;
     }
 
     public Date getOrderDate() {

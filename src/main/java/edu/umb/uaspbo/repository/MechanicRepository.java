@@ -7,6 +7,8 @@ import java.util.List;
 public interface MechanicRepository {
     Mechanic findById(int id);
 
+    Mechanic findByName(String name);
+
     List<Mechanic> findAll();
 
     void save(Mechanic mechanic);

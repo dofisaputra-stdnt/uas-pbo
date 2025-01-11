@@ -7,6 +7,8 @@ import java.util.List;
 public interface ServiceRepository {
     Service findById(int id);
 
+    Service findByName(String name);
+
     List<Service> findAll();
 
     void save(Service service);

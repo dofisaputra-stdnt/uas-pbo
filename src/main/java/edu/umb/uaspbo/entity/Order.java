@@ -6,6 +6,7 @@ import java.util.Date;
 public class Order {
     private int id;
     private int clientId;
+    private int mechanicId;
     private LocalDate orderDate;
     private LocalDate eventDate;
     private double totalAmount;
@@ -22,9 +23,10 @@ public class Order {
     public Order() {
     }
 
-    public Order(int id, int clientId, LocalDate orderDate, LocalDate eventDate, double totalAmount, OrderStatus status, Date createdAt) {
+    public Order(int id, int clientId, int mechanicId, LocalDate orderDate, LocalDate eventDate, double totalAmount, OrderStatus status, Date createdAt) {
         this.id = id;
         this.clientId = clientId;
+        this.mechanicId = mechanicId;
         this.orderDate = orderDate;
         this.eventDate = eventDate;
         this.totalAmount = totalAmount;
@@ -46,6 +48,14 @@ public class Order {
 
     public void setClientId(int clientId) {
         this.clientId = clientId;
+    }
+
+    public int getMechanicId() {
+        return mechanicId;
+    }
+
+    public void setMechanicId(int mechanicId) {
+        this.mechanicId = mechanicId;
     }
 
     public LocalDate getOrderDate() {

@@ -11,6 +11,13 @@ public class OrderDetail {
     public OrderDetail() {
     }
 
+    public OrderDetail(int orderId, int serviceId, int quantity, double price) {
+        this.orderId = orderId;
+        this.serviceId = serviceId;
+        this.quantity = quantity;
+        this.price = price;
+    }
+
     public OrderDetail(int id, int orderId, int serviceId, int quantity, double price, double subtotal) {
         this.id = id;
         this.orderId = orderId;

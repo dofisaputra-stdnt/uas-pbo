@@ -10,7 +10,7 @@ public interface OrderRepository {
 
     List<Order> findAll();
 
-    void save(Order order);
+    Order save(Order order);
 
     void update(Order order);
 

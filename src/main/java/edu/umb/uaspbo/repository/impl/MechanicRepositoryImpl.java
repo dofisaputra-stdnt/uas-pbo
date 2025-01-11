@@ -6,7 +6,9 @@ import edu.umb.uaspbo.repository.MechanicRepository;
 import edu.umb.uaspbo.util.EntityMapper;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class MechanicRepositoryImpl extends BaseRepository<Mechanic> implements MechanicRepository {
     public MechanicRepositoryImpl(Connection connection) {
@@ -21,6 +23,21 @@ public class MechanicRepositoryImpl extends BaseRepository<Mechanic> implements 
     @Override
     protected Mechanic mapToEntity(ResultSet resultSet) {
         return EntityMapper.mapToEntity(resultSet, Mechanic.class);
+    }
+
+    @Override
+    public Mechanic findByName(String name) {
+        String query = "SELECT * FROM " + getTableName() + " WHERE name = ?";
+        try (PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setString(1, name);
+            ResultSet resultSet = statement.executeQuery();
+            if (resultSet.next()) {
+                return mapToEntity(resultSet);
+            }
+        } catch (SQLException e) {
+            log.warning(e.getMessage());
+        }
+        return null;
     }
 
     @Override

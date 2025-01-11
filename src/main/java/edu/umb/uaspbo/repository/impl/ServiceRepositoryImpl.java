@@ -6,7 +6,9 @@ import edu.umb.uaspbo.repository.ServiceRepository;
 import edu.umb.uaspbo.util.EntityMapper;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class ServiceRepositoryImpl extends BaseRepository<Service> implements ServiceRepository {
     public ServiceRepositoryImpl(Connection connection) {
@@ -21,6 +23,21 @@ public class ServiceRepositoryImpl extends BaseRepository<Service> implements Se
     @Override
     protected Service mapToEntity(ResultSet resultSet) {
         return EntityMapper.mapToEntity(resultSet, Service.class);
+    }
+
+    @Override
+    public Service findByName(String name) {
+        String query = "SELECT * FROM " + getTableName() + " WHERE name = ?";
+        try (PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setString(1, name);
+            ResultSet resultSet = statement.executeQuery();
+            if (resultSet.next()) {
+                return mapToEntity(resultSet);
+            }
+        } catch (SQLException e) {
+            log.warning(e.getMessage());
+        }
+        return null;
     }
 
     @Override
